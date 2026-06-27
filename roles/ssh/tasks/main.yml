@@ -1,0 +1,6 @@
+---
+- name: Install public SSH key
+  authorized_key:
+    user: "{{ ssh_user }}"
+    state: present
+    key: "{{ lookup('file', 'files/id_ed25519.pub') }}"

@@ -1,9 +1,21 @@
 ---
-- name: configure Web Server
+- name: Configure Web Server
   hosts: webservers
   become: true
 
-  roles: 
+  roles:
     - role: base
       tags:
         - base
+
+    - role: ssh
+      tags:
+        - ssh
+
+    - role: nginx
+      tags:
+        - nginx
+
+    - role: app
+      tags:
+        - app

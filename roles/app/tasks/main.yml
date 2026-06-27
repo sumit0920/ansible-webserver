@@ -1,0 +1,23 @@
+---
+- name: Install Git
+  apt:
+    name: git
+    state: present
+
+- name: Remove existing website
+  file:
+    path: "{{ web_root }}"
+    state: absent
+
+- name: Clone website repository
+  git:
+    repo: "{{ website_repo }}"
+    dest: "{{ web_root }}"
+    version: "{{ website_branch }}"
+    force: yes
+- name: Set ownership
+  file:
+    path: "{{ web_root }}"
+    owner: "{{ web_user }}"
+    group: "{{ web_group }}"
+    recurse: yes

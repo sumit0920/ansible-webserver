@@ -1,0 +1,16 @@
+---
+# Website Configuration
+website_repo: "https://github.com/sumit0920/pomodoro-timer.git"
+website_branch: "main"
+
+# Web Server
+web_root: "/var/www/html"
+web_user: "www-data"
+web_group: "www-data"
+
+# SSH
+ssh_user: "ubuntu"
+
+# Nginx
+nginx_service: "nginx"
+nginx_config: "/etc/nginx/sites-available/default"
