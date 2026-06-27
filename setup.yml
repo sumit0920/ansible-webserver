@@ -1,0 +1,9 @@
+---
+- name: configure Web Server
+  hosts: webservers
+  become: true
+
+  roles: 
+    - role: base
+      tags:
+        - base

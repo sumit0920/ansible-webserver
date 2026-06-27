@@ -1,0 +1,30 @@
+---
+- name: Update apt package cache
+  apt:
+    update_cache: yes
+
+- name: Upgrade installed packages
+  apt:
+    upgrade: dist
+
+- name: Install required packages
+  apt:
+    name:
+      - curl
+      - wget
+      - git
+      - vim
+      - unzip
+      - htop
+      - fail2ban
+    state: present
+
+- name: Enable fail2ban
+  service:
+    name: fail2ban
+    enabled: yes
+
+- name: Start fail2ban
+  service:
+    name: fail2ban
+    state: started
